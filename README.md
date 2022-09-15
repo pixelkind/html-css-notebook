@@ -1,27 +1,7 @@
-# html-css-notebook
+# HTML & CSS Notebook
 
-⚠️ Work-in-progress starter code for custom notebook renderers in VS Code. Expect this to change as notebooks matures. ⚠️
+With the HTML & CSS Notebook extension for Visual Studio Code you can easily create Notebooks that run HTML and CSS code.
 
-This starter includes:
+You can create code cells with HTML code and combine them with cells that contain CSS code to see the result combining both of them together.
 
- - 🖥️ TypeScript code to create a simple `NotebookOutputRenderer`
- - 📦 A Webpack build for renderer client code
- - ⚡ Support for hot module reloading and safe boilerplate
- - 🎨 CSS modules support
-
-### Running this Sample
-
- 1. `code-insiders html-css-notebook`: Open the folder in VS Code Insiders
- 1. Hit `F5` to build+debug
-
-### Structure
-
-A Notebook Renderer consists of code that runs in the VS Code Extension Host (Node.js), which registers the renderer and passes data into the UI code running inside a WebView (Browser/DOM).
-
-This uses TypeScript project references. There are three projects in the `src` directory:
-
- - `extension` contains the code running in Node.js extension host. It's compiled with `tsc`.
- - `client` is the UI code, built by Webpack, with access to the DOM.
- - `common` contains code shared between the extension and client.
-
-When you run `watch`, `compile`, or `dev`, we invoke both `tsc` and `webpack` to compile the extension and the client portion of the code.
+If you execute a specific cell, all cells upon to this cell will be executed but not further. That means it works differently compared to regular Jupyter notebooks where you can run cells in any order and execute a single cell only.

@@ -30,7 +30,7 @@
         "displayName": "HTML & CSS Notebook",
         "selector": [
           {
-            "filenamePattern": "*.html-css-notebook"
+            "filenamePattern": "*.stylebook"
           }
         ]
       }
