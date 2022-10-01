@@ -3,6 +3,7 @@
   "displayName": "HTML & CSS Notebook",
   "description": "A notebook extension for easy HTML & CSS development",
   "version": "0.0.1",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.71.0"
   },
