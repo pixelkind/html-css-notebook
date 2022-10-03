@@ -8,11 +8,33 @@ import { Controller } from "./controller";
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.workspace.registerNotebookSerializer(
-      "html-css-notebook",
-      new Serializer()
-    ),
+    vscode.workspace.registerNotebookSerializer("stylebook", new Serializer()),
     new Controller()
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("stylebook.new", async () => {
+      const newStylebook = await vscode.workspace.openNotebookDocument(
+        "stylebook",
+        new vscode.NotebookData([
+          new vscode.NotebookCellData(
+            vscode.NotebookCellKind.Markup,
+            "# Welcome to your stylebook",
+            "markdown"
+          ),
+          new vscode.NotebookCellData(
+            vscode.NotebookCellKind.Code,
+            "<h1>stylebook</h1>",
+            "html"
+          ),
+          new vscode.NotebookCellData(
+            vscode.NotebookCellKind.Code,
+            "h1 {\n  color: #ffffff;\n}",
+            "css"
+          ),
+        ])
+      );
+      await vscode.window.showNotebookDocument(newStylebook);
+    })
   );
 }
 

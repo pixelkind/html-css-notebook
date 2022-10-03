@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
 
 export class Controller {
-  readonly controllerId = "html-css-notebook-controller";
-  readonly notebookType = "html-css-notebook";
+  readonly controllerId = "stylebook-controller";
+  readonly notebookType = "stylebook";
   readonly label = "HTML & CSS Notebook";
   readonly supportedLanguages = ["html", "css"];
 
@@ -29,7 +29,7 @@ export class Controller {
     let html = "";
     let css = "";
     for (let cell of allCells) {
-      if (cell.kind === 2) {
+      if (cell.kind === vscode.NotebookCellKind.Code) {
         if (cell.document.languageId === "html") {
           html += cell.document.getText() + "\n";
         } else if (cell.document.languageId === "css") {
@@ -41,7 +41,7 @@ export class Controller {
           return element === cell;
         })
       ) {
-        this._doExecution(cell, html, css);
+        this._doExecution(cell, html.concat(), css.concat());
       }
     }
   }
@@ -55,11 +55,14 @@ export class Controller {
       ${html}
     `;
 
-    execution.replaceOutput([
-      new vscode.NotebookCellOutput([
-        vscode.NotebookCellOutputItem.text(code, "text/html"),
-      ]),
-    ]);
+    execution.replaceOutput(
+      [
+        new vscode.NotebookCellOutput([
+          vscode.NotebookCellOutputItem.text(code, "text/html"),
+        ]),
+      ],
+      cell
+    );
 
     execution.end(true, Date.now());
   }

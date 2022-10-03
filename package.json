@@ -1,9 +1,13 @@
 {
-  "name": "html-css-notebook",
-  "displayName": "HTML & CSS Notebook",
+  "name": "stylebook",
+  "displayName": "Stylebook",
   "description": "A notebook extension for easy HTML & CSS development",
   "version": "0.0.1",
   "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixelkind/html-css-notebook.git"
+  },
   "engines": {
     "vscode": "^1.71.0"
   },
@@ -20,15 +24,16 @@
     "Other"
   ],
   "activationEvents": [
-    "onNotebook:html-css-notebook"
+    "onCommand:stylebook.new",
+    "onNotebook:stylebook"
   ],
   "main": "./out/extension/extension.js",
   "browser": "./out/extension/extension.web.js",
   "contributes": {
     "notebooks": [
       {
-        "type": "html-css-notebook",
-        "displayName": "HTML & CSS Notebook",
+        "type": "stylebook",
+        "displayName": "Stylebook",
         "selector": [
           {
             "filenamePattern": "*.stylebook"
@@ -38,12 +43,18 @@
     ],
     "notebookRenderer": [
       {
-        "id": "io.garrit.html-css-notebook",
+        "id": "io.garrit.stylebook",
         "entrypoint": "./out/client/index.js",
-        "displayName": "HTML & CSS Notebook",
+        "displayName": "Stylebook",
         "mimeTypes": [
           "text/html"
         ]
+      }
+    ],
+    "commands": [
+      {
+        "title": "New Stylebook",
+        "command": "stylebook.new"
       }
     ]
   },
