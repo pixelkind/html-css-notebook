@@ -3,6 +3,7 @@
   "displayName": "Stylebook",
   "description": "A notebook extension for easy HTML & CSS development",
   "version": "1.0.0",
+  "publisher": "garrit",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
