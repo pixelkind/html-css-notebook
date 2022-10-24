@@ -2,7 +2,7 @@
   "name": "stylebook",
   "displayName": "Stylebook",
   "description": "A notebook extension for easy HTML & CSS development",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "garrit",
   "icon": "images/icon.png",
   "repository": {
